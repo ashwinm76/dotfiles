@@ -3,6 +3,259 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+import subprocess
+
+def read_xresources(prefix):
+    props = {}
+    x = subprocess.run(['xrdb', '-query'], stdout=subprocess.PIPE)
+    lines = x.stdout.decode().split('\n')
+    for line in filter(lambda l : l.startswith(prefix), lines):
+        prop, _, value = line.partition(':\t')
+        props[prop] = value
+    return props
+
+xresources = read_xresources('*')
+c.tabs.indicator.width = 0
+#Width (in pixels) of the progress indicator (0 to disable).
+
+#colors.keyhint.bg
+#Background color of the keyhint widget.
+
+#colors.keyhint.fg (Current: #FFFFFF)
+#Text color for the keyhint widget.
+
+#colors.keyhint.suffix.fg (Current: #FFFF00)
+#Highlight color for keys to complete the current keychain.
+
+c.colors.downloads.start.bg = xresources['*color14']
+#Color gradient start for download backgrounds.
+
+c.colors.downloads.stop.bg = xresources['*color2']
+#Color gradient stop for download backgrounds.
+
+c.colors.downloads.start.fg = xresources['*color0']
+#Color gradient start for download text.
+
+c.colors.downloads.stop.fg = xresources['*color0']
+#Color gradient end for download text.
+
+#colors.downloads.error.fg (Current: white)
+#Foreground color for downloads with errors.
+
+c.colors.downloads.error.bg = xresources['*color1']
+#Background color for downloads with errors.
+
+#colors.downloads.system.fg (Current: rgb)
+#Color gradient interpolation system for download text.
+
+#colors.downloads.system.bg (Current: rgb)
+#Color gradient interpolation system for download backgrounds.
+
+#colors.downloads.bar.bg (Current: black)
+#Background color for the download bar.
+
+#colors.statusbar.passthrough.fg (Current: white)
+#Foreground color of the statusbar in passthrough mode.
+
+#colors.statusbar.passthrough.bg (Current: darkblue)
+#Background color of the statusbar in passthrough mode.
+
+#colors.statusbar.caret.fg (Current: white)
+#Foreground color of the statusbar in caret mode.
+
+#colors.statusbar.caret.bg (Current: purple)
+#Background color of the statusbar in caret mode.
+
+#colors.statusbar.caret.selection.fg (Current: white)
+#Foreground color of the statusbar in caret mode with a selection.
+
+#colors.statusbar.caret.selection.bg (Current: #a12dff)
+#Background color of the statusbar in caret mode with a selection.
+
+c.colors.statusbar.url.hover.fg = xresources['*color4']
+#Foreground color of the URL in the statusbar for hovered links.
+
+#colors.statusbar.url.success.http.fg (Current: white)
+#Foreground color of the URL in the statusbar on successful load (http).
+
+c.colors.statusbar.url.success.https.fg = xresources['*color2']
+#Foreground color of the URL in the statusbar on successful load (https).
+
+#colors.statusbar.normal.fg (Current: white)
+#Foreground color of the statusbar.
+
+#colors.statusbar.normal.bg (Current: black)
+#Background color of the statusbar.
+
+#colors.statusbar.progress.bg (Current: white)
+#Background color of the progress bar.
+
+#colors.statusbar.command.fg (Current: white)
+#Foreground color of the statusbar in command mode.
+
+#colors.statusbar.command.bg (Current: black)
+#Background color of the statusbar in command mode.
+
+#colors.statusbar.url.fg (Current: white)
+#Default foreground color of the URL in the statusbar.
+
+#colors.statusbar.command.private.fg (Current: white)
+#Foreground color of the statusbar in private browsing + command mode.
+
+c.colors.statusbar.insert.fg = xresources['*color10']
+#Foreground color of the statusbar in insert mode.
+
+c.colors.statusbar.insert.bg = xresources['*color6']
+#Background color of the statusbar in insert mode.
+
+#colors.statusbar.command.private.bg (Current: grey)
+#Background color of the statusbar in private browsing + command mode.
+
+c.colors.statusbar.url.warn.fg = xresources['*color3']
+#Foreground color of the URL in the statusbar when there's a warning.
+
+#colors.statusbar.private.bg (Current: #666666)
+#Background color of the statusbar in private browsing mode.
+
+#colors.statusbar.private.fg (Current: white)
+#Foreground color of the statusbar in private browsing mode.
+
+c.colors.statusbar.url.error.fg = xresources['*color1']
+#Foreground color of the URL in the statusbar on error.
+
+#colors.prompts.selected.bg (Current: grey)
+#Background color for the selected item in filename prompts.
+
+#colors.prompts.bg (Current: #444444)
+#Background color for prompts.
+
+#colors.prompts.border (Current: 1px solid gray)
+#Border used around UI elements in prompts.
+
+#colors.prompts.fg (Current: white)
+#Foreground color for prompts.
+
+c.colors.completion.even.bg = xresources['*color8']
+#Background color of the completion widget for even rows.
+
+c.colors.completion.odd.bg = xresources['*color11']
+#Background color of the completion widget for odd rows.
+
+#colors.completion.item.selected.fg (Current: black)
+#Foreground color of the selected completion item.
+
+c.colors.completion.item.selected.bg = xresources['*color3']
+#Background color of the selected completion item.
+
+c.colors.completion.item.selected.border.top = xresources['*color3']
+#Top border color of the completion widget category headers.
+
+c.colors.completion.item.selected.border.bottom = xresources['*color3']
+#Bottom border color of the selected completion item.
+
+c.colors.completion.match.fg = xresources['*color1']
+#Foreground color of the matched text in the completion.
+
+c.colors.completion.category.bg = xresources['*color0']
+#Background color of the completion widget category headers.
+
+c.colors.completion.category.border.top = xresources['*color0']
+#Top border color of the completion widget category headers.
+
+c.colors.completion.category.border.bottom = xresources['*color0']
+#Bottom border color of the completion widget category headers.
+
+c.colors.completion.scrollbar.bg = xresources['*color11']
+#Color of the scrollbar in the completion view.
+
+c.colors.completion.scrollbar.fg = xresources['*color8']
+#Color of the scrollbar handle in the completion view.
+
+c.colors.completion.fg = [xresources['*color7'], xresources['*color7'], xresources['*color7']]
+#Text color of the completion widget. May be a single color to use for all columns or a list of three colors, one for each column.
+
+#colors.completion.category.fg (Current: white)
+#Foreground color of completion widget category headers.
+
+c.colors.tabs.even.fg = xresources['*color7']
+#Foreground color of unselected even tabs.
+
+c.colors.tabs.even.bg = xresources['*color8']
+#Background color of unselected even tabs.
+
+c.colors.tabs.odd.fg = xresources['*color0']
+#Foreground color of unselected odd tabs.
+
+c.colors.tabs.odd.bg = xresources['*color12']
+#Background color of unselected odd tabs.
+
+#colors.tabs.indicator.error (Current: #ff0000)
+#Color for the tab indicator on errors.
+
+#colors.tabs.bar.bg (Current: #555555)
+#Background color of the tab bar.
+
+#colors.tabs.indicator.start (Current: #0000aa)
+#Color gradient start for the tab indicator.
+
+#colors.tabs.indicator.stop (Current: #00aa00)
+#Color gradient end for the tab indicator.
+
+#colors.tabs.indicator.system (Current: rgb)
+#Color gradient interpolation system for the tab indicator.
+
+#colors.tabs.selected.even.fg (Current: white)
+#Foreground color of selected even tabs.
+
+c.colors.tabs.selected.even.bg = xresources['*color0']
+#Background color of selected even tabs.
+
+#colors.tabs.selected.odd.fg (Current: white)
+#Foreground color of selected odd tabs.
+
+c.colors.tabs.selected.odd.bg = xresources['*color0']
+#Background color of selected odd tabs.
+
+#colors.hints.bg (Current: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, ...)
+c.colors.hints.bg = xresources['*color3']
+#Background color for hints. Note that you can use a `rgba(...)` value for transparency.
+
+#colors.hints.fg (Current: black)
+#Font color for hints.
+
+c.colors.hints.match.fg = xresources['*color2']
+#Font color for the matched part of hints.
+
+#colors.messages.info.fg (Current: white)
+#Foreground color of an info message.
+
+#colors.messages.info.bg (Current: black)
+#Background color of an info message.
+
+#colors.messages.info.border (Current: #333333)
+#Border color of an info message.
+
+#colors.messages.error.fg (Current: white)
+#Foreground color of an error message.
+
+c.colors.messages.error.bg = xresources['*color1']
+#Background color of an error message.
+
+#colors.messages.error.border (Current: #bb0000)
+#Border color of an error message.
+
+#colors.messages.warning.fg (Current: white)
+#Foreground color of a warning message.
+
+#colors.messages.warning.bg (Current: darkorange)
+#Background color of a warning message.
+
+#colors.messages.warning.border (Current: #d47300)
+#Border color of a warning message.
+
+c.colors.webpage.bg = xresources['*color7']
+#Background color for webpages if unset (or empty to use the theme's color).
+
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
@@ -27,8 +280,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
-c.url.searchengines['google'] = 'https://www.google.com/search?q={}'
+c.url.searchengines['ddgo'] = 'https://duckduckgo.com/?q={}'
+c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?q={}'}
 
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file

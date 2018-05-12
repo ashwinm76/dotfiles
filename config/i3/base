@@ -178,6 +178,9 @@ bar {
         }
 }
 
+# Keybinding to lock screen
+bindsym $mod+Control+l exec --no-startup-id /usr/bin/i3lock -c ba8baf
+
 # Keybinding to open firefox
 bindsym $mod+Shift+f exec ~/bin/firefox/firefox
 
@@ -194,7 +197,6 @@ bindsym XF86AudioPrev exec --no-startup-id mpc -p 6601 prev # next song
 
 # Autoruns
 exec qutebrowser
-#exec --no-startup-id feh --no-fehbg --bg-max <filename>
 
 # No borders.
 new_window none
@@ -207,3 +209,6 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
+
+# Desktop colour
+exec --no-startup-id xsetroot -solid "#383838"
