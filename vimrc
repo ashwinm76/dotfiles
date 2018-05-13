@@ -15,9 +15,6 @@ noremap j h
 " Show line numbers
 set number
 
-" Show 80-char column
-set colorcolumn=81
-
 " New lines are autoindented by 2 spaces
 set shiftwidth=2
 
