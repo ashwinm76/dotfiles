@@ -97,7 +97,7 @@ if ! shopt -oq posix; then
 fi
 
 export PAGER=less
-export EDITOR=vim.gtk3
+export EDITOR=vim.gtk
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then

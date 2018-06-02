@@ -280,8 +280,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines['ddgo'] = 'https://duckduckgo.com/?q={}'
 c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?q={}'}
+c.url.searchengines['ddgo'] = 'https://duckduckgo.com/?q={}'
 
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file
@@ -291,3 +291,6 @@ c.url.searchengines = {'DEFAULT': 'https://www.google.com/search?q={}'}
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
 c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+
+c.url.start_pages = 'about:blank'
+
