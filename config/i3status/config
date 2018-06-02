@@ -25,7 +25,7 @@ order += "tztime local"
 
 wireless _first_ {
         format_up = " (%quality at %essid) %ip"
-        format_down = " down"
+        format_down = "睊"
 }
 
 ethernet _first_ {
@@ -36,6 +36,7 @@ ethernet _first_ {
 
 battery all {
         format = "%status %percentage %remaining"
+        format_down = ""
 	last_full_capacity = true
 	hide_seconds = true
 	integer_battery_capacity = true
@@ -44,6 +45,7 @@ battery all {
 	status_full = " "
 	status_chr = "⚡"
 	status_bat = ""
+	status_unk = ""
 }
 
 tztime local {
