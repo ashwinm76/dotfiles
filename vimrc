@@ -4,7 +4,7 @@ set nocompatible
 execute pathogen#infect()
 
 " search options
-set hls
+set nohls
 
 " Remap the cursor keys to the home keys
 noremap ; l
@@ -32,7 +32,7 @@ colorscheme base16-default-dark
 let g:airline_theme='base16_default'
 
 " Pascal options
-autocmd BufNewFile,BufRead *.pas :compiler fpc
+autocmd BufNewFile,BufRead *.pas,*.lpr :compiler fpc
 let pascal_fpc=1
 let pascal_delphi=1
 
@@ -57,6 +57,9 @@ set backspace=indent,eol,start
 
 " Dont look at #includes when autocompleting
 set complete-=i
+
+" Look at source files in the current directory when autocompleting
+set complete+=s./*.c,s./*.cpp,s./*.h,s./*.pas,s./*.lpr
 
 " Ignore case when searching and autocompleting
 set ignorecase
