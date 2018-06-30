@@ -182,8 +182,8 @@ bar {
 # Keybinding to lock screen
 bindsym $mod+Control+l exec --no-startup-id /usr/bin/i3lock -c ba8baf
 
-# Keybinding to open firefox
-bindsym $mod+Shift+f exec ~/bin/firefox/firefox
+# Keybinding to take a screenshot of the currently focused window
+bindsym $mod+Print exec scrot --focused --exec 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Keybinding to open ncmpcpp
 bindsym $mod+Shift+m exec /usr/bin/urxvt -e ncmpcpp
