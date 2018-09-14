@@ -1,0 +1,10 @@
+URxvt.scrollBar: false
+URxvt.font: xft:mononoki Nerd Font Mono:size=10
+URxvt.boldFont: xft:mononoki Nerd Font Mono:size=10
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.letterSpace: -1
+URxvt.perl-ext-common: default,keyboard-select
+URxvt.keysym.M-Escape: keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+

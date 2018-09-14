@@ -99,11 +99,7 @@ fi
 export PAGER=less
 export EDITOR=vim.gtk
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$HOME/bin/firefox:$HOME/Development/FreePascal/lazarus:$HOME/Development/FreePascal/fpc/bin:$PATH"
-fi
-
+PATH="$HOME/bin:$HOME/ultibo/core/fpc/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
