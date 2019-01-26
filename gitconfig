@@ -1,3 +1,5 @@
 [user]
 	email = ashwin.menon@gmail.com
 	name = Ashwin Menon
+[diff]
+	tool = gvimdiff

@@ -3,17 +3,17 @@ set nocompatible
 
 execute pathogen#infect()
 
-" search options
-set nohls
-
 " Remap the cursor keys to the home keys
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
+"noremap ; l
+"noremap l k
+"noremap k j
+"noremap j h
 
 " Show line numbers
 set number
+
+" Always show the tab line
+set showtabline=2
 
 " New lines are autoindented by 2 spaces
 set shiftwidth=2
@@ -24,19 +24,11 @@ set expandtab
 " Enable nerd fonts for the gui
 set guifont=mononoki\ Nerd\ Font\ Mono\ 10
 
-" Enable powerline fonts
-let g:airline_powerline_fonts = 1
 set encoding=utf8
 
 " Set the colourscheme
-"colorscheme base16-default-dark
 set background=dark
 colorscheme solarized
-
-" Set the airline theme
-"let g:airline_theme='base16_default'
-let g:airline_solzrized_bg='dark'
-let g:airline_theme='solarized'
 
 " Pascal options
 autocmd BufNewFile,BufRead *.pas,*.lpr :compiler fpc
